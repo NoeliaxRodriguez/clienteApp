@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administra tu perfil</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+
+<body style="margin-left: 5%; margin-right: 5%; margin-top: 15px">
+<h2>Tus datos:</h2>
+<hr>
+<h3>Email</h3>
+<p><span th:text="${usuario.mail}"></span></p>
+
+<h3>Contraseña</h3>
+<p><span th:text="${usuario.passwd}"></span></p>
+
+<h3>Rol</h3>
+<!--<p><span th:text="${usuario}"></span></p>-->
+
+<h3> Nombre del establecimiento </h3>
+<p><span th:text="${usuario.nom_est}"></span></p>
+
+<h3>Tipo del establecimiento</h3>
+<p><span th:text="${usuario.tipo_est}"></span></p>
+<h3>Nombre jefe/responsable</h3>
+<p><span th:text="${usuario.nom_jefe}"></span></p>
+<h3>Ubicación</h3>
+<p><span th:text="${usuario.ubicacion}"></span></p>
+<h3>Horario de entregas </h3>
+<p><span th:text="${usuario.hor_entregas}"></span></p>
+
+<hr>
+<button> <a th:href="@{/mostrarFormModifUsu/{userName}(userName=${usuario.mail})}"class="btn btn-primary">Modificar</a></button>
+<form th:action="@{/delete-user/{userName}(userName=${usuario.mail})}" method="post">
+    <button type="submit" class="btn btn-danger">Borrar</button>
+            </form>
+
+<hr>
+<a th:href="@{/homepageAdmin}" class="btn btn-primary btn-sm mb-3">Atrás</a>
+
+</body>
+</html>
